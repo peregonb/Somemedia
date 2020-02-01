@@ -5,21 +5,11 @@
   }
 }
 
-@mixin nignt {
-  body {
-    &[theme="night"] {
-      @content;
-    }
-  }
-}
-
 //vars
 $t: .3s;
-$montserat: 'Open Sans';
+$montserrat: 'Montserrat';
 
 //colors
-$nightBlack: #313131;
-$nightGrey: #414141;
-$nightLightGrey: #525252;
-$nightOrange: #ec625f;
-$nightBlue: #5557c3;
+$blue: #3A80BA;
+$black: #1A1A1A;
+$grey: #7E7E7E;
