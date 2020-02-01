@@ -1,0 +1,25 @@
+//mixins
+@mixin r($point) {
+  @media (max-width: $point + px) {
+    @content;
+  }
+}
+
+@mixin nignt {
+  body {
+    &[theme="night"] {
+      @content;
+    }
+  }
+}
+
+//vars
+$t: .3s;
+$montserat: 'Open Sans';
+
+//colors
+$nightBlack: #313131;
+$nightGrey: #414141;
+$nightLightGrey: #525252;
+$nightOrange: #ec625f;
+$nightBlue: #5557c3;
