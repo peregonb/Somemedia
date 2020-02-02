@@ -88,3 +88,37 @@
   font-weight: 100;
   font-style: normal;
 }
+
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?4xcf9');
+  src:  url('../fonts/icomoon.eot?4xcf9#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?4xcf9') format('truetype'),
+    url('../fonts/icomoon.woff?4xcf9') format('woff'),
+    url('../fonts/icomoon.svg?4xcf9#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  position: relative;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before{
+    font-family: 'icomoon' !important;
+  }
+}
+
+.icon-chevron:before {
+  content: "\e900";
+}
