@@ -9,6 +9,7 @@ import macbook from './../assets/img/macbook.png'
 import basic from './../assets/img/basic.jpg'
 import standart from './../assets/img/standart.jpg'
 import unlimited from './../assets/img/unlimited.jpg'
+import {NavLink} from "react-router-dom";
 
 export const Mainpage = props => {
     return (
@@ -28,10 +29,10 @@ export const Mainpage = props => {
                                 more
                                 about our work!
                             </div>
-                            <div className="mainFirst-button btn-white">
+                            <NavLink to="/users" className="mainFirst-button btn-white">
                                 <span>View Stats</span>
                                 <img src={nextSvg} alt=""/>
-                            </div>
+                            </NavLink>
                         </div>
                         <div className="mainFirst-right">
                             <img src={mobile} alt=""/>
