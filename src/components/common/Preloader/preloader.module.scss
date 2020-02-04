@@ -1,0 +1,16 @@
+@keyframes spin {
+    0%   { transform: translate(-50%, -50%) rotate(0deg) }
+    100% { transform: translate(-50%, -50%) rotate(360deg) }
+  }
+
+    .preloader{
+        height: 60px;
+        width: 60px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        transition: transform .5s;
+        animation: spin 1s infinite;
+    }

@@ -1,6 +1,9 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 
-export const UsersTable = () => {
+
+export const UsersTable = props => {
+
     return (
         <section className="users">
             <div className="users-wrap wrap">
@@ -19,71 +22,36 @@ export const UsersTable = () => {
                         </div>
                     </div>
                     <div className="users-body">
-                        <div className="users-row">
-                            <div className="users-item">1</div>
-                            <div className="users-item">Samuel</div>
-                            <div className="users-item">Frost</div>
-                            <div className="users-item">
-                                <span>sirious.sam@gmail.com</span>
-                            </div>
-                            <div className="users-item">
-                                <span>male</span>
-                            </div>
-                            <div className="users-item">
-                                <span>192.168.32.05</span>
-                            </div>
-                            <div className="users-item">
-                                <span>290 883</span>
-                            </div>
-                            <div className="users-item">
-                                <span>290 883</span>
-                            </div>
-                        </div>
-                        <div className="users-row">
-                            <div className="users-item">2</div>
-                            <div className="users-item">Samuel</div>
-                            <div className="users-item">Frost</div>
-                            <div className="users-item">
-                                <span>sirious.sam@gmail.com</span>
-                            </div>
-                            <div className="users-item">
-                                <span>male</span>
-                            </div>
-                            <div className="users-item">
-                                <span>192.168.32.05</span>
-                            </div>
-                            <div className="users-item">
-                                <span>290 883</span>
-                            </div>
-                            <div className="users-item">
-                                <span>290 883</span>
-                            </div>
-                        </div>
-                        <div className="users-row">
-                            <div className="users-item">3</div>
-                            <div className="users-item">Samuel</div>
-                            <div className="users-item">Frost</div>
-                            <div className="users-item">
-                                <span>sirious.sam@gmail.com</span>
-                            </div>
-                            <div className="users-item">
-                                <span>male</span>
-                            </div>
-                            <div className="users-item">
-                                <span>192.168.32.05</span>
-                            </div>
-                            <div className="users-item">
-                                <span>290 883</span>
-                            </div>
-                            <div className="users-item">
-                                <span>290 883</span>
-                            </div>
-                        </div>
-
+                        {props.users.map(u => (
+                            <NavLink to={'/user/' + (u.id + props.multiplier)} className="users-row" key={u.id}>
+                                <div className="users-item">{u.id + props.multiplier}</div>
+                                <div className="users-item">{u.first_name}</div>
+                                <div className="users-item">{u.last_name}</div>
+                                <div className="users-item">
+                                    <span>{u.email}</span>
+                                </div>
+                                <div className="users-item">
+                                    <span>{u.gender}</span>
+                                </div>
+                                <div className="users-item">
+                                    <span>{u.ip_address}</span>
+                                </div>
+                                <div className="users-item">
+                                    <span>
+                                        {u.total_clicks}
+                                </span>
+                                </div>
+                                <div className="users-item">
+                                    <span>{u.total_page_views}</span>
+                                </div>
+                            </NavLink>
+                        ))}
                     </div>
                 </div>
             </div>
         </section>
     );
+
+
 }
 

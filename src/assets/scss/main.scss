@@ -149,7 +149,7 @@ color: inherit;
 }
 
 .mainFirst {
-  background-image: url("../img/bg-wave.png");
+  background-image: url("../img/bg-wave.svg");
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
@@ -404,6 +404,8 @@ color: inherit;
 
   &-img {
     margin-top: 48px;
+    width: 106px;
+height: 96px;
     @include r(600) {
       margin-top: 36px;
     }
@@ -555,7 +557,7 @@ color: inherit;
   background-repeat: no-repeat;
   background-position-y: 60px;
   background-position-x: right;
-  background-size: auto;
+      background-size: auto calc(100% - 60px);
 
   &-wrap {
     display: flex;
@@ -801,6 +803,7 @@ color: inherit;
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
+
   @include r(1439) {
     background-size: cover;
     background-position: bottom center;

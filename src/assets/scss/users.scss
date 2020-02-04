@@ -166,6 +166,11 @@
           justify-content: flex-end;
           flex-grow: 1;
           padding-right: 20px;
+
+          display: block;
+    line-height: 32px;
+    padding-left: 20px;
+    text-align: right;
         }
       }
     }
@@ -368,6 +373,13 @@
           }
         }
       }
+
+      cursor: pointer;
+      transition: color $t;
+      &:hover{
+        color: $blue;
+        transition: color $t;
+      }
     }
 
     .users-item {
@@ -419,7 +431,7 @@
 
       &:nth-child(2) {
         @include r(1200) {
-          padding-right: 10px;
+          padding-right: 5px;
         }
       }
 
@@ -429,12 +441,33 @@
         }
       }
 
+      &:nth-child(4) {
+        flex: 1;
+
+        &, & > * {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        padding-left: 20px;
+        padding-right: 20px;
+        align-items: center;
+        justify-content: flex-start;
+        @include r(1200) {
+          padding-left: 0;
+          padding-right: 0;
+          flex: auto;
+        }
+      }
+
     }
 
   }
 
   &-row {
     display: flex;
+    color: $black;
     @include r(1200) {
       display: flex;
       flex-flow: row wrap;
@@ -506,11 +539,10 @@
 
     &:before {
       font-size: 28px;
-@include r(600) {
-      font-size: 20px;
+      @include r(600) {
+        font-size: 20px;
+      }
     }
-    }
-
     &.disabled {
       color: #f1f1f1;
       transition: color $t;
@@ -527,7 +559,7 @@
     height: 48px;
     margin-right: 8px;
     cursor: pointer;
-    transition: all $t;
+    transition: border $t, background-color $t, color $t;
     font-size: 16px;
     -webkit-tap-highlight-color: transparent;
     @include r(600) {
@@ -546,7 +578,7 @@
       border: 2px solid $blue;
       background-color: $blue;
       color: white;
-      transition: all $t;
+      transition: border $t, background-color $t, color $t;
     }
   }
 }

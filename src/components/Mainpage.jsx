@@ -11,7 +11,7 @@ import standart from './../assets/img/standart.jpg'
 import unlimited from './../assets/img/unlimited.jpg'
 import {NavLink} from "react-router-dom";
 
-export const Mainpage = props => {
+export const Mainpage = () => {
     return (
         <div className="main">
             <section className="mainFirst">
@@ -50,21 +50,21 @@ export const Mainpage = props => {
                     </div>
                     <div className="mainSecond-content">
                         <div className="mainSecond-tile">
-                            <img src={tile1} className="mainSecond-img"/>
+                            <img alt="" src={tile1} className="mainSecond-img"/>
                             <div className="mainSecond-header">Clean Design</div>
                             <div className="mainSecond-text">Increase sales by showing true dynamics of your
                                 website.
                             </div>
                         </div>
                         <div className="mainSecond-tile">
-                            <img src={tile2} className="mainSecond-img"/>
+                            <img alt="" src={tile2} className="mainSecond-img"/>
                             <div className="mainSecond-header">Secure Data</div>
                             <div className="mainSecond-text">Build your online store’s trust using Social Proof &
                                 Urgency.
                             </div>
                         </div>
                         <div className="mainSecond-tile">
-                            <img src={tile3} className="mainSecond-img"/>
+                            <img alt="" src={tile3} className="mainSecond-img"/>
                             <div className="mainSecond-header">Retina Ready</div>
                             <div className="mainSecond-text">Realize importance of social proof in customer’s
                                 purchase decision.
@@ -196,4 +196,4 @@ export const Mainpage = props => {
             </section>
         </div>
     )
-}
+};
