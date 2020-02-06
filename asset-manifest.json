@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/bitmedia/static/css/main.096dd93a.chunk.css",
-    "main.js": "/bitmedia/static/js/main.2667b3b6.chunk.js",
-    "main.js.map": "/bitmedia/static/js/main.2667b3b6.chunk.js.map",
+    "main.js": "/bitmedia/static/js/main.fde6c66d.chunk.js",
+    "main.js.map": "/bitmedia/static/js/main.fde6c66d.chunk.js.map",
     "runtime-main.js": "/bitmedia/static/js/runtime-main.2b112f75.js",
     "runtime-main.js.map": "/bitmedia/static/js/runtime-main.2b112f75.js.map",
     "xlsx.js": "/bitmedia/static/js/xlsx.945a0c49.chunk.js",
@@ -17,7 +17,7 @@
     "static/js/6.639194e1.chunk.js": "/bitmedia/static/js/6.639194e1.chunk.js",
     "static/js/6.639194e1.chunk.js.map": "/bitmedia/static/js/6.639194e1.chunk.js.map",
     "index.html": "/bitmedia/index.html",
-    "precache-manifest.2e4df60e26f402627a6652b7bd7e933c.js": "/bitmedia/precache-manifest.2e4df60e26f402627a6652b7bd7e933c.js",
+    "precache-manifest.8d4f36857c97a51bceee6b43ffb46ef1.js": "/bitmedia/precache-manifest.8d4f36857c97a51bceee6b43ffb46ef1.js",
     "service-worker.js": "/bitmedia/service-worker.js",
     "static/css/3.1979ee65.chunk.css.map": "/bitmedia/static/css/3.1979ee65.chunk.css.map",
     "static/css/main.096dd93a.chunk.css.map": "/bitmedia/static/css/main.096dd93a.chunk.css.map",
@@ -42,6 +42,6 @@
     "static/css/3.1979ee65.chunk.css",
     "static/js/3.4294086e.chunk.js",
     "static/css/main.096dd93a.chunk.css",
-    "static/js/main.2667b3b6.chunk.js"
+    "static/js/main.fde6c66d.chunk.js"
   ]
 }
