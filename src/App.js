@@ -13,8 +13,8 @@ class App extends React.Component {
         return (
             <BrowserRouter>
                 <div className="wrapper">
-                    <Route path="/homepage" render={() => <Mainpage/>}/>
-                    <Route path="/users" render={() => <Users/>}/>
+                    <Route path={process.env.PUBLIC_URL + '/'} render={() => <Mainpage/>}/>
+                    <Route path={process.env.PUBLIC_URL + '/users'} render={() => <Users/>}/>
                     <Route path="/user/:userId?"
                            render={(matchProps) => <Charts {...matchProps} handleMatch={this.handleMatch}/>}/>
                 </div>
