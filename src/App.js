@@ -13,7 +13,7 @@ class App extends React.Component {
         return (
             <BrowserRouter>
                 <div className="wrapper">
-                    <Route path="/" exact render={() => <Mainpage/>}/>
+                    <Route path="/homepage" render={() => <Mainpage/>}/>
                     <Route path="/users" render={() => <Users/>}/>
                     <Route path="/user/:userId?"
                            render={(matchProps) => <Charts {...matchProps} handleMatch={this.handleMatch}/>}/>
