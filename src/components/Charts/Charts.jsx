@@ -87,7 +87,7 @@ export class Charts extends React.Component {
 
     }
 
-    disposeAll(){
+    disposeAll() {
         if (this.state.clicks) {
             this.state.clicks.dispose();
             this.state.page_views.dispose();
@@ -110,11 +110,12 @@ export class Charts extends React.Component {
     onDatePickingEnd(date) {
         this.disposeAll();
         let userId = parseInt(this.props.match.params.userId);
-        usersAPI.getUserByID(userId, this.state.startDate, date).then(r => {this.setState({endDate: date});
-                usersAPI.getUserStatsInPeriod(userId, this.state.startDate, date).then(result => {
-                    const filled = usersAPI.fillEmptyDaysInStats(result, this.state.startDate, date);
-                    this.amcharts(filled);
-                });
+        usersAPI.getUserByID(userId, this.state.startDate, date).then(r => {
+            this.setState({endDate: date});
+            usersAPI.getUserStatsInPeriod(userId, this.state.startDate, date).then(result => {
+                const filled = usersAPI.fillEmptyDaysInStats(result, this.state.startDate, date);
+                this.amcharts(filled);
+            });
         })
     }
 

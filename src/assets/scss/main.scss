@@ -405,7 +405,7 @@
   &-img {
     margin-top: 48px;
     width: 106px;
-height: 96px;
+    height: 96px;
     @include r(600) {
       margin-top: 36px;
     }
@@ -557,7 +557,7 @@ height: 96px;
   background-repeat: no-repeat;
   background-position-y: 60px;
   background-position-x: right;
-      background-size: auto calc(100% - 60px);
+  background-size: auto calc(100% - 60px);
 
   &-wrap {
     display: flex;
