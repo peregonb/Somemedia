@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/bitmedia/static/css/main.096dd93a.chunk.css",
-    "main.js": "/bitmedia/static/js/main.add53401.chunk.js",
-    "main.js.map": "/bitmedia/static/js/main.add53401.chunk.js.map",
+    "main.js": "/bitmedia/static/js/main.8fe99701.chunk.js",
+    "main.js.map": "/bitmedia/static/js/main.8fe99701.chunk.js.map",
     "runtime-main.js": "/bitmedia/static/js/runtime-main.2b112f75.js",
     "runtime-main.js.map": "/bitmedia/static/js/runtime-main.2b112f75.js.map",
     "xlsx.js": "/bitmedia/static/js/xlsx.945a0c49.chunk.js",
     "xlsx.js.map": "/bitmedia/static/js/xlsx.945a0c49.chunk.js.map",
     "static/css/3.1979ee65.chunk.css": "/bitmedia/static/css/3.1979ee65.chunk.css",
-    "static/js/3.bd2d07a3.chunk.js": "/bitmedia/static/js/3.bd2d07a3.chunk.js",
-    "static/js/3.bd2d07a3.chunk.js.map": "/bitmedia/static/js/3.bd2d07a3.chunk.js.map",
+    "static/js/3.4294086e.chunk.js": "/bitmedia/static/js/3.4294086e.chunk.js",
+    "static/js/3.4294086e.chunk.js.map": "/bitmedia/static/js/3.4294086e.chunk.js.map",
     "static/js/4.00e3a5f9.chunk.js": "/bitmedia/static/js/4.00e3a5f9.chunk.js",
     "static/js/4.00e3a5f9.chunk.js.map": "/bitmedia/static/js/4.00e3a5f9.chunk.js.map",
     "static/js/5.475eee39.chunk.js": "/bitmedia/static/js/5.475eee39.chunk.js",
@@ -17,11 +17,11 @@
     "static/js/6.639194e1.chunk.js": "/bitmedia/static/js/6.639194e1.chunk.js",
     "static/js/6.639194e1.chunk.js.map": "/bitmedia/static/js/6.639194e1.chunk.js.map",
     "index.html": "/bitmedia/index.html",
-    "precache-manifest.9dcbae0db03e5824306c950780de6ea7.js": "/bitmedia/precache-manifest.9dcbae0db03e5824306c950780de6ea7.js",
+    "precache-manifest.0af3d997c8dfcb701901f6afb1a657e5.js": "/bitmedia/precache-manifest.0af3d997c8dfcb701901f6afb1a657e5.js",
     "service-worker.js": "/bitmedia/service-worker.js",
     "static/css/3.1979ee65.chunk.css.map": "/bitmedia/static/css/3.1979ee65.chunk.css.map",
     "static/css/main.096dd93a.chunk.css.map": "/bitmedia/static/css/main.096dd93a.chunk.css.map",
-    "static/js/3.bd2d07a3.chunk.js.LICENSE.txt": "/bitmedia/static/js/3.bd2d07a3.chunk.js.LICENSE.txt",
+    "static/js/3.4294086e.chunk.js.LICENSE.txt": "/bitmedia/static/js/3.4294086e.chunk.js.LICENSE.txt",
     "static/js/4.00e3a5f9.chunk.js.LICENSE.txt": "/bitmedia/static/js/4.00e3a5f9.chunk.js.LICENSE.txt",
     "static/js/5.475eee39.chunk.js.LICENSE.txt": "/bitmedia/static/js/5.475eee39.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/bitmedia/static/media/icomoon.f4e06f4a.woff",
@@ -40,8 +40,8 @@
   "entrypoints": [
     "static/js/runtime-main.2b112f75.js",
     "static/css/3.1979ee65.chunk.css",
-    "static/js/3.bd2d07a3.chunk.js",
+    "static/js/3.4294086e.chunk.js",
     "static/css/main.096dd93a.chunk.css",
-    "static/js/main.add53401.chunk.js"
+    "static/js/main.8fe99701.chunk.js"
   ]
 }
