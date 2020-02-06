@@ -23,7 +23,7 @@ export const UsersTable = props => {
                     </div>
                     <div className="users-body">
                         {props.users.map(u => (
-                            <NavLink to={'/user/' + (u.id + props.multiplier)} className="users-row" key={u.id}>
+                            <NavLink to={process.env.PUBLIC_URL + '/user/' + (u.id + props.multiplier)} className="users-row" key={u.id}>
                                 <div className="users-item">{u.id + props.multiplier}</div>
                                 <div className="users-item">{u.first_name}</div>
                                 <div className="users-item">{u.last_name}</div>
