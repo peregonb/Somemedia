@@ -27,8 +27,8 @@ export class Users extends React.Component {
     }
 
 
-    API = () => {
-        usersAPI.getUsers(this.state.pageSize, (this.state.pageSize * this.state.currentPage - this.state.pageSize)).then(response => {
+    API = (pageNumber) => {
+        usersAPI.getUsers(this.state.pageSize, (this.state.pageSize * pageNumber - this.state.pageSize)).then(response => {
             this.setState({
                 isFetching: false,
                 users: response.items,
@@ -40,11 +40,10 @@ export class Users extends React.Component {
             let pages = [];
             for (let i = 1; i <= response.total / this.state.pageSize; i++) {
                 pages.push(i);
-                this.setState({
-                    pages: pages
-                })
-
             }
+            this.setState({
+                pages: pages
+            });
         });
     };
 
@@ -52,7 +51,7 @@ export class Users extends React.Component {
         this.setState({
             currentPage: pageNumber
         });
-        this.API();
+        this.API(pageNumber);
         this.scrollToTop(600);
     };
 
@@ -77,7 +76,7 @@ export class Users extends React.Component {
     };
 
     componentDidMount() {
-        this.API();
+        this.API(1);
         window.onload = () => {
             this.changePaginationOnMobile();
         };
