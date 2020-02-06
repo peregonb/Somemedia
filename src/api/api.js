@@ -1,67 +1,136 @@
-import * as moment from 'moment';
+import {
+  parse,
+  format,
+  isAfter,
+  isBefore,
+  isSameDay,
+  addDays,
+  differenceInCalendarDays
+} from "date-fns";
 
-const usersJSON = require('./data/users.json');
-const statsJSON = appendDate(require('./data/users_statistic.json'));
+const DATE_FORMAT = "yyyy-MM-dd";
+const DAY_MS = 86400000;
 
-function appendDate(arr) {
-    return arr.map(i => ({...i, date: moment(i.date, 'YYYY-MM-DD')}))
-}
+const appendDate = arr =>
+  arr.map(i => ({ ...i, dateMs: parse(i.date, DATE_FORMAT, new Date()) }));
+
+const isSameOrAfter = (dateLeft, dateRight) =>
+  isSameDay(dateLeft, dateRight) || isAfter(dateLeft, dateRight);
+
+const isSameOrBefore = (dateLeft, dateRight) =>
+  isSameDay(dateLeft, dateRight) || isBefore(dateLeft, dateRight);
+
+const usersJSON = require("./data/users.json");
+const statsJSON = appendDate(require("./data/users_statistic.json"));
 
 export default {
-    async getUserByID(id) {
-        return usersJSON.filter(u => u.id === parseInt(id))[0];
-    },
+  async getUserByID(id, startDate, endDate) {
+    const person = usersJSON.filter(u => u.id === +id)[0];
+    const statistics = statsJSON.filter(stat => stat.user_id === +id);
+    const rangedData = statistics.filter(
+      stat => isAfter(stat.dateMs, startDate) && isBefore(stat.dateMs, endDate)
+    );
 
-    // 10 на странице (n)
-    // 5 страница (p)
-    // offset = p * n
-    async getUsers(limit, offset) {
-        let arrLength = usersJSON.slice(offset, offset + limit).length;
-        let arrCommon = [];
-        for (let i = 0; i < arrLength; i++) {
-            let finalClicks = statsJSON.filter(arr => arr.user_id === i + 1).map(el => el.clicks).reduce((prevValue, curValue) => {
-                let sum = prevValue + curValue;
-                return !sum ? 0 : sum;
-            });
-            let finalViews = statsJSON.filter(arr => arr.user_id === i + 1).map(el => el.page_views).reduce((prevValue, curValue) => {
-                let sum = prevValue + curValue;
-                return !sum ? 0 : sum;
-            });
-            arrCommon.push({
-                id: i + 1,
-                total_clicks: finalClicks,
-                total_page_views: finalViews
-            })
-        }
-        let recievedElements = usersJSON.slice(offset, offset + limit);
-        let finalArray = recievedElements.map((item, i) => Object.assign({}, item, arrCommon[i]));
-        return {
-            total: usersJSON.length,
-            items: finalArray
-        };
-    },
+    return {
+      person,
+      statistics,
+      rangedData
+    };
+  },
 
-    async changeUsersPage(currentPage, pageSize, pageNumber) {
+  async getMaxDate(id) {
+    let personStatistics = statsJSON.filter(
+      stat => stat.user_id === parseInt(id)
+    );
+    let datesArr = [];
+    personStatistics.map(stat => datesArr.push(stat.dateMs));
+    let maxDate = new Date(Math.max.apply(null, datesArr));
+    let minDate = new Date(Math.min.apply(null, datesArr));
+    let pastDate = new Date(maxDate - DAY_MS * 6);
+    return {
+      maxDate,
+      pastDate,
+      minDate
+    };
+  },
+  fillEmptyDaysInStats(stats, startDate, endDate) {
+    const statsGroupedByDate = new Map();
+    stats.forEach(stat => {
+      if (!statsGroupedByDate.has(stat.date)) {
+        statsGroupedByDate.set(stat.date, [stat]);
+        return;
+      }
 
-    },
+      statsGroupedByDate.get(stat.date).push(stat);
+    });
 
-    async getUserStats(userId) {
-        return statsJSON.filter(stat => stat.user_id === userId);
-    },
+    const filledStats = [];
 
-    async getAllStats(limit, offset) {
-        return {
-            total: statsJSON.length,
-            items: statsJSON.slice(offset, offset + limit)
-        }
-    },
+    const daysCount = differenceInCalendarDays(endDate, startDate);
+    for (let i = 0; i <= daysCount; i++) {
 
-    /**
-     * Get statsJSON between start and end date
-     * @param {Moment} startDate Start date
-     * @param {Moment} endDate End date
-     */
-    async getStatsInPeriod(startDate, endDate) {
-        return statsJSON.filter(stat => stat.date.isAfter(startDate) && stat.date.isBefore(endDate))
+      const date = addDays(startDate, i);
+      const dateStr = format(date, DATE_FORMAT);
+
+      if (statsGroupedByDate.has(dateStr)) {
+        filledStats.push(...statsGroupedByDate.get(dateStr));
+        continue;
+      }
+
+
+      filledStats.push({
+        user_id: stats.user_id,
+        date: dateStr,
+        dateMs: date,
+        page_views: 0,
+        clicks: 0
+      });
     }
+
+    return filledStats;
+  },
+
+  async getUsers(limit, offset) {
+    let arrLength = usersJSON.slice(offset, offset + limit).length;
+    let arrCommon = [];
+    for (let i = 0; i < arrLength; i++) {
+      let finalClicks = statsJSON
+        .filter(arr => arr.user_id === i + 1)
+        .map(el => el.clicks)
+        .reduce((prevValue, curValue) => {
+          let sum = prevValue + curValue;
+          return !sum ? 0 : sum;
+        });
+      let finalViews = statsJSON
+        .filter(arr => arr.user_id === i + 1)
+        .map(el => el.page_views)
+        .reduce((prevValue, curValue) => {
+          let sum = prevValue + curValue;
+          return !sum ? 0 : sum;
+        });
+      arrCommon.push({
+        id: i + 1,
+        total_clicks: finalClicks,
+        total_page_views: finalViews
+      });
+    }
+    let recievedElements = usersJSON.slice(offset, offset + limit);
+    let finalArray = recievedElements.map((item, i) =>
+      Object.assign({}, item, arrCommon[i])
+    );
+    return {
+      total: usersJSON.length,
+      items: finalArray
+    };
+  },
+
+  async getUserStatsInPeriod(userID, startDate, endDate) {
+    return statsJSON.filter(
+      stat =>
+        stat.user_id === userID &&
+        isSameOrAfter(stat.dateMs, startDate) &&
+        isSameOrBefore(stat.dateMs, endDate)
+    );
+  },
+
 };

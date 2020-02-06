@@ -1,7 +1,6 @@
 import React from 'react';
 import {Header} from "../common/Header";
 import {Breadcrumbs} from "../common/Breadcrumbs";
-import {Pagination} from "../common/Pagination";
 import {Footer} from "../common/Footer";
 import {UsersTable} from "./UsersTable";
 import Preloader from "../common/Preloader/Preloader";
@@ -40,23 +39,22 @@ export class Users extends React.Component {
 
             let pages = [];
             for (let i = 1; i <= response.total / this.state.pageSize; i++) {
-                pages.push(i)
+                pages.push(i);
                 this.setState({
                     pages: pages
                 })
 
             }
-            console.log(this.state)
         });
-    }
+    };
 
     onPageChange = pageNumber => {
         this.setState({
             currentPage: pageNumber
-        })
+        });
         this.API();
         this.scrollToTop(600);
-    }
+    };
 
     scrollToTop = (scrollDuration) => {
         const scrollHeight = window.scrollY,
@@ -65,27 +63,27 @@ export class Users extends React.Component {
         let scrollCount = 0,
             scrollMargin,
             scrollInterval = setInterval(function () {
-                if (window.scrollY != 0) {
+                if (window.scrollY !== 0) {
                     scrollCount = scrollCount + 1;
                     scrollMargin = cosParameter - cosParameter * Math.cos(scrollCount * scrollStep);
                     window.scrollTo(0, (scrollHeight - scrollMargin));
                 } else clearInterval(scrollInterval);
             }, 15);
-    }
+    };
 
     changePaginationOnMobile = () => {
         this.setState({windowWidth: window.outerWidth});
         this.state.windowWidth < 421 ? this.setState({mobileNavigation: 1}) : this.setState({mobileNavigation: 0});
-    }
+    };
 
     componentDidMount() {
         this.API();
         window.onload = () => {
             this.changePaginationOnMobile();
-        }
+        };
         window.onresize = () => {
             this.changePaginationOnMobile();
-        }
+        };
     }
 
     render() {

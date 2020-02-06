@@ -6,10 +6,10 @@ export const Breadcrumbs = props => {
         <section className="breadcrumbs">
             <div className="breadcrumbs-wrap wrap">
                 <NavLink to="/" className="breadcrumbs-item icon-chevron">Main page</NavLink>
-                <NavLink to="/users" className="breadcrumbs-item icon-chevron">User satistics</NavLink>
-                {props.name && <a className="breadcrumbs-item icon-chevron">{props.name}</a>}
+                <NavLink to="/users" className="breadcrumbs-item icon-chevron">User statistics</NavLink>
+                {props.name && <span className="breadcrumbs-item icon-chevron">{props.name}</span>}
             </div>
         </section>
     );
-}
+};
 
