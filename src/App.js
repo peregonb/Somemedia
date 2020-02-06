@@ -15,7 +15,7 @@ class App extends React.Component {
                 <div className="wrapper">
                     <Route exact path={process.env.PUBLIC_URL + '/'} render={() => <Mainpage/>}/>
                     <Route path={process.env.PUBLIC_URL + '/users'} render={() => <Users/>}/>
-                    <Route path="/user/:userId?"
+                    <Route path={process.env.PUBLIC_URL + '/user/:userId?'}
                            render={(matchProps) => <Charts {...matchProps} handleMatch={this.handleMatch}/>}/>
                 </div>
             </BrowserRouter>
