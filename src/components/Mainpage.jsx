@@ -29,7 +29,7 @@ export const Mainpage = () => {
                                 more
                                 about our work!
                             </div>
-                            <NavLink to="/users" className="mainFirst-button btn-white">
+                            <NavLink to={process.env.PUBLIC_URL + '/users'} className="mainFirst-button btn-white">
                                 <span>View Stats</span>
                                 <img src={nextSvg} alt=""/>
                             </NavLink>
