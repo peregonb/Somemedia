@@ -21,7 +21,8 @@ export class Charts extends React.Component {
             maxDate: null,
             pastDate: null,
             startDate: null,
-            endDate: null
+            endDate: null,
+            dateFormat: 'dd-MM-yyyy'
         };
     }
 
@@ -163,7 +164,7 @@ export class Charts extends React.Component {
                                                 this.setState({startDate: date})
                                             }}
                                             selectsStart
-                                            dateFormat={'dd-MM-yyyy'}
+                                            dateFormat={this.state.dateFormat}
                                             minDate={this.state.minDate}
                                             maxDate={this.state.endDate}
                                         />
@@ -177,7 +178,7 @@ export class Charts extends React.Component {
                                             selectsEnd
                                             minDate={this.state.startDate}
                                             maxDate={this.state.maxDate}
-                                            dateFormat={'dd-MM-yyyy'}
+                                            dateFormat={this.state.dateFormat}
                                         />
                                     </div>
 
