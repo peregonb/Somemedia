@@ -1,6 +1,6 @@
-## Тестовое задание для компании bitmedia
+## Тестовое задание для компании somemedia
 
-Просмотреть визуально можно по [ссылке](https://peregonb.github.io/bitmedia/)
+Просмотреть визуально можно по [ссылке](https://peregonb.github.io/Somemedia/)
 
 ![Alt Text](./docs/demo.gif)
 
